@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Business Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; width: 100%; }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBr_bYGmstp86waCRkzOZmu3gNCWZwx3yU"></script>
+    <script>
+      function initMap() {
+        const locations = [
+          { lat: 34.0207, lng: -84.3616, title: "Almost Simple Home" },
+          { lat: 34.0522, lng: -118.2437, title: "Business 2" },
+          { lat: 40.7128, lng: -74.0060, title: "Business 3" }
+          // Add more businesses here
+        ];
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 5,
+          center: locations[0]
+        });
+
+        locations.forEach(loc => {
+          const marker = new google.maps.Marker({
+            position: { lat: loc.lat, lng: loc.lng },
+            map: map,
+            title: loc.title
+          });
+
+          const infoWindow = new google.maps.InfoWindow({
+            content: `<strong>${loc.title}</strong>`
+          });
+
+          marker.addListener("click", () => {
+            infoWindow.open(map, marker);
+          });
+        });
+      }
+    </script>
+  </head>
+  <body onload="initMap()">
+    <div id="map"></div>
+  </body>
+</html>
