@@ -25,98 +25,169 @@
           center: { lat: 39.5, lng: -98.35 } // Center of USA
         });
 
-        geocodeAddress("500 Main St, Ames, IA", "<strong>Nook & Nest and Z.W. Mercantile</strong><br><strong>(The Shops at Clark & Main)</strong><br>500 Main St, Ames, IA<br>(515) 330-5467 <br> <br>Products: A large variety of products can be found here including lotion refills");
+        // Array of business data with addresses, content, and image URLs
+        const businesses = [
+          {
+            address: "500 Main St, Ames, IA",
+            content: "<strong>Nook & Nest and Z.W. Mercantile</strong><br><strong>(The Shops at Clark & Main)</strong><br>500 Main St, Ames, IA<br>(515) 330-5467<br><br>Products: A large variety of products can be found here including lotion refills",
+            image: "https://via.placeholder.com/150x100?text=Nook+Nest+ZW+Mercantile"
+          },
+          {
+            address: "9038 Cobbler Ct, Roswell, GA",
+            content: "<strong>Almost Simple Home</strong><br>9038 Cobbler Ct, Roswell, GA<br><br><br>Products: Small Lotions",
+            image: "https://via.placeholder.com/150x100?text=Almost+Simple+Home"
+          },
+          {
+            address: "8793 NW Arboretum Rd, Corvallis, OR",
+            content: "<strong>Anderson Blues</strong><br>8793 NW Arboretum Rd, Corvallis, OR<br>",
+            image: "https://via.placeholder.com/150x100?text=Anderson+Blues"
+          },
+          {
+            address: "705 Main St, Adel, IA",
+            content: "<strong>Azalea Lanes</strong><br>705 Main St, Adel, IA<br>515-210-1450<br><br>Products: Variety of products",
+            image: "https://via.placeholder.com/150x100?text=Azalea+Lanes"
+          },
+          {
+            address: "311 Main St, Bedford, IA",
+            content: "<strong>Be Still Mercantile</strong><br>311 Main St, Bedford, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Be+Still+Mercantile"
+          },
+          {
+            address: "118 S Dodge St, Algona, IA",
+            content: "<strong>Bumdiddly Gifts</strong><br>118 S Dodge St, Algona, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Bumdiddly+Gifts"
+          },
+          {
+            address: "1000 Grand Ave, West Des Moines, IA",
+            content: "<strong>Chocolate Storybook</strong><br>1000 Grand Ave, West Des Moines, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Chocolate+Storybook"
+          },
+          {
+            address: "108 N 16th St, Clarinda, IA",
+            content: "<strong>Clarinda Flower Shop</strong><br>108 N 16th St, Clarinda, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Clarinda+Flower+Shop"
+          },
+          {
+            address: "818 Main St, Pella, IA",
+            content: "<strong>Funky Zebra</strong><br>818 Main St, Pella, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Funky+Zebra"
+          },
+          {
+            address: "1308 G St, High Amana, IA",
+            content: "<strong>High Amana General Store</strong><br>1308 G St, High Amana, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=High+Amana+General+Store"
+          },
+          {
+            address: "13778 Summerset Rd, Indianola, IA",
+            content: "<strong>Honey Hallow</strong><br>13778 Summerset Rd, Indianola, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Honey+Hallow"
+          },
+          {
+            address: "124 West Jefferson, Osceola, IA",
+            content: "<strong>Ivy Rose</strong><br>124 West Jefferson, Osceola, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Ivy+Rose"
+          },
+          {
+            address: "101 S U Ave, Villisca, IA",
+            content: "<strong>Jackies Junk Jewelry</strong><br>101 S U Ave, Villisca, IA<br>(712) 370-2388<br><br>Products: Small variety of products",
+            image: "https://via.placeholder.com/150x100?text=Jackies+Junk+Jewelry"
+          },
+          {
+            address: "8303 Dodge St, Omaha, NE",
+            content: "<strong>Methodist Hospital Gift Shop</strong><br>8303 Dodge St, Omaha, NE<br>",
+            image: "https://via.placeholder.com/150x100?text=Methodist+Hospital+Gift+Shop"
+          },
+          {
+            address: "721 G Ave, Grundy Center, IA",
+            content: "<strong>Natural Grind</strong><br>721 G Ave, Grundy Center, IA<br>319-215-9573<br><br>Products: Lotions",
+            image: "https://via.placeholder.com/150x100?text=Natural+Grind"
+          },
+          {
+            address: "37842 Nan Wesley Rd, Denham Springs, LA",
+            content: "<strong>The Pink Petal Boutique</strong><br>37842 Nan Wesley Rd, Denham Springs, LA<br>",
+            image: "https://via.placeholder.com/150x100?text=The+Pink+Petal+Boutique"
+          },
+          {
+            address: "1010 13th St N, Humboldt, IA",
+            content: "<strong>The Protea Collective</strong><br>1010 13th St N, Humboldt, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=The+Protea+Collective"
+          },
+          {
+            address: "1974 Grande Ave, West Des Moines, IA",
+            content: "<strong>Purple Door Home Décor</strong><br>1974 Grande Ave, West Des Moines, IA<br>515-223-6723<br><br>Products: Small variety of products",
+            image: "https://via.placeholder.com/150x100?text=Purple+Door+Home+Decor"
+          },
+          {
+            address: "113 E Salem Ave, Indianola, IA",
+            content: "<strong>Roots</strong><br>113 E Salem Ave, Indianola, IA<br><br>Products: Variety of soaps and lotions",
+            image: "https://via.placeholder.com/150x100?text=Roots"
+          },
+          {
+            address: "8706 Countryside Plaza, Omaha, NE",
+            content: "<strong>Sage Grove Designs</strong><br>8706 Countryside Plaza, Omaha, NE<br>",
+            image: "https://via.placeholder.com/150x100?text=Sage+Grove+Designs"
+          },
+          {
+            address: "201 S 13th St, Nebraska City, NE",
+            content: "<strong>Sass & Frass</strong><br>201 S 13th St, Nebraska City, NE<br>",
+            image: "https://via.placeholder.com/150x100?text=Sass+Frass"
+          },
+          {
+            address: "3094 North Winn Rd, Decorah, IA",
+            content: "<strong>Seed Savers Exchange</strong><br>3094 North Winn Rd, Decorah, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Seed+Savers+Exchange"
+          },
+          {
+            address: "2190 NW 82nd St. Ste 4, Clive, IA",
+            content: "<strong>Serendipity Spa</strong><br>2190 NW 82nd St. Ste 4, Clive, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Serendipity+Spa"
+          },
+          {
+            address: "110 S Elm, Shenandoah, IA",
+            content: "<strong>Serenity Studio</strong><br>110 S Elm, Shenandoah, IA<br>",
+            image: "https://raw.githubusercontent.com/BrambleWoodAcres/Partner-Map/main/images/Serenity_Studio_N_Spa.png"
+          },
+          {
+            address: "300 Pershing Ave, Shenandoah, IA",
+            content: "<strong>Shenandoah Medical Center</strong><br>300 Pershing Ave, Shenandoah, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Shenandoah+Medical+Center"
+          },
+          {
+            address: "802 Kenyon Road, Fort Dodge, IA",
+            content: "<strong>Trinity Gifts</strong><br>802 Kenyon Road, Fort Dodge, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Trinity+Gifts"
+          },
+          {
+            address: "2301 Ingersoll Ave, Suite 200, Des Moines, IA",
+            content: "<strong>True Roots Chiropractic</strong><br>2301 Ingersoll Ave, Suite 200, Des Moines, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=True+Roots+Chiropractic"
+          },
+          {
+            address: "401 W 9th St, Tipton, IA",
+            content: "<strong>Val's Day Spa</strong><br>401 W 9th St, Tipton, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Vals+Day+Spa"
+          },
+          {
+            address: "794 48th Ave, Amana, IA",
+            content: "<strong>Warped & Woven Mill Mercantile</strong><br>794 48th Ave, Amana, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=Warped+Woven+Mill+Mercantile"
+          },
+          {
+            address: "510 N 4th St, Red Oak, IA",
+            content: "<strong>White Sparrow LLC</strong><br>510 N 4th St, Red Oak, IA<br>",
+            image: "https://via.placeholder.com/150x100?text=White+Sparrow+LLC"
+          },
+          {
+            address: "301 SW Walnut St, Ankeny, IA",
+            content: "<strong>XO XO Gift & Home</strong><br>301 SW Walnut St, Ankeny, IA<br>(515) 964-0600<br><br>Products: Large variety of products",
+            image: "https://via.placeholder.com/150x100?text=XO+XO+Gift+Home"
+          }
+        ];
 
-
-        geocodeAddress("9038 Cobbler Ct, Roswell , GA", "<strong>Almost Simple Home</strong><br>9038 Cobbler Ct, Roswell , GA<br> <br> <br>Products: Small Lotions");
-
-
-        geocodeAddress("8793 NW Arboretum Rd, Corvallis, OR", "<strong>Anderson Blues</strong><br>8793 NW Arboretum Rd, Corvallis, OR<br>");
-
-
-        geocodeAddress("705 Main St, Adel, IA", "<strong>Azalea Lanes</strong><br>705 Main St, Adel, IA<br>515-210-1450<br> <br>Products: Variety of products");
-
-
-        geocodeAddress("311 Main St, Bedford, IA", "<strong>Be Still Mercantile</strong><br>311 Main St, Bedford, IA<br>");
-
-
-        geocodeAddress("118 S Dodge St, Algona, IA", "<strong>Bumdiddly Gifts</strong><br>118 S Dodge St, Algona, IA<br>");
-
-
-        geocodeAddress("1000 Grand Ave, West Des Moines, IA", "<strong>Chocolate Storybook</strong><br>1000 Grand Ave, West Des Moines, IA<br>");
-
-
-        geocodeAddress("108 N 16th St, Clarinda, IA", "<strong>Clarinda Flower Shop</strong><br>108 N 16th St, Clarinda, IA<br>");
-
-
-        geocodeAddress("818 Main St, Pella, IA", "<strong>Funky Zebra</strong><br>818 Main St, Pella, IA<br>");
-
-
-        geocodeAddress("1308 G St, High Amana, IA", "<strong>High Amana General Store</strong><br>1308 G St, High Amana, IA<br>");
-
-
-        geocodeAddress("13778 Summerset Rd, Indianola, IA", "<strong>Honey Hallow</strong><br>13778 Summerset Rd, Indianola, IA<br>");
-
-
-        geocodeAddress("124 West Jefferson, Osceola, IA", "<strong>Ivy Rose</strong><br>124 West Jefferson, Osceola, IA<br>");
-
-
-        geocodeAddress("101 S U Ave, Villisca, IA", "<strong>Jackies Junk Jewelry</strong><br>101 S U Ave, Villisca, IA<br>(712) 370-2388<br><br>Products: Small variety of products");
-
-
-        geocodeAddress("8303 Dodge St, Omaha, NE", "<strong>Methodist Hospital Gift Shop</strong><br>8303 Dodge St, Omaha, NE<br>");
-
-
-        geocodeAddress("721 G Ave, Grundy Center, IA", "<strong>Natural Grind</strong><br>721 G Ave, Grundy Center, IA<br>319-215-9573<br><br>Products: Lotions");
-
-
-        geocodeAddress("37842 Nan Wesley Rd, Denham Springs, LA", "<strong>The Pink Petal Boutique</strong><br>37842 Nan Wesley Rd, Denham Springs, LA<br>");
-
-
-        geocodeAddress("1010 13th St N, Humboldt, IA", "<strong>The Protea Collective</strong><br>1010 13th St N, Humboldt, IA<br>");
-
-
-        geocodeAddress("1974 Grande Ave, West Des Moines, IA", "<strong>Purple Door Home Décor</strong><br>1974 Grande Ave, West Des Moines, IA<br>515-223-6723<br><br>Products: Small variety of products");
-
-
-        geocodeAddress("113 E Salem Ave, Indianola, IA", "<strong>Roots</strong><br>113 E Salem Ave, Indianola, IA<br>     <br><br>Products: Variety of soaps and lotions");
-
-
-        geocodeAddress("8706 Countryside Plaza, Omaha, NE", "<strong>Sage Grove Designs</strong><br>8706 Countryside Plaza, Omaha, NE<br>");
-
-
-        geocodeAddress("201 S 13th St, Nebraska City, NE", "<strong>Sass & Frass</strong><br>201 S 13th St, Nebraska City, NE<br>");
-
-
-        geocodeAddress("3094 North Winn Rd, Decorah, IA", "<strong>Seed Savers Exchange</strong><br>3094 North Winn Rd, Decorah, IA<br>");
-
-
-        geocodeAddress("2190 NW 82nd St. Ste 4, Clive, IA", "<strong>Serendipity Spa</strong><br>2190 NW 82nd St. Ste 4, Clive, IA<br>");
-
-
-        geocodeAddress("110 S Elm, Shenandoah, IA", "<strong>Serenity Studio</strong><br>110 S Elm, Shenandoah, IA<br>");
-
-
-        geocodeAddress("300 Pershing Ave, Shenandoah, IA", "<strong>Shenandoah Medical Center</strong><br>300 Pershing Ave, Shenandoah, IA<br>");
-
-
-        geocodeAddress("802 Kenyon Road, Fort Dodge, IA", "<strong>Trinity Gifts</strong><br>802 Kenyon Road, Fort Dodge, IA<br>");
-
-
-        geocodeAddress("2301 Ingersoll Ave, Suite 200, Des Moines, IA", "<strong>True Roots Chiropractic</strong><br>2301 Ingersoll Ave, Suite 200, Des Moines, IA<br>");
-
-
-        geocodeAddress("401 W 9th St, Tipton, IA", "<strong>Val's Day Spa</strong><br>401 W 9th St, Tipton, IA<br>");
-
-
-        geocodeAddress("794 48th Ave, Amana, IA", "<strong>Warped & Woven Mill Mercantile</strong><br>794 48th Ave, Amana, IA<br>");
-
-
-        geocodeAddress("510 N 4th St, Red Oak, IA", "<strong>White Sparrow LLC</strong><br>510 N 4th St, Red Oak, IA<br>");
-
-
-        geocodeAddress("301 SW Walnut St, Ankeny, IA", "<strong>XO XO Gift & Home</strong><br>301 SW Walnut St, Ankeny, IA<br>(515) 964-0600<br><br>Products: Large variety of products");
-
+        // Process each business
+        businesses.forEach(business => {
+          geocodeAddress(business.address, business.content, business.image);
+        });
       }
 
       function geocodeAddress(address, content) {
