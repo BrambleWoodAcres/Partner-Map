@@ -82,7 +82,7 @@
         geocodeAddress("2301 Ingersoll Ave, Suite 200, Des Moines, IA", "<strong>True Roots Chiropractic</strong><br>2301 Ingersoll Ave, Suite 200, Des Moines, IA<br>");
 
 
-        geocodeAddress("108 West 5th St, Tipton, IA", "<strong>Val's Day Spa</strong><br>108 West 5th St, Tipton, IA<br>");
+        geocodeAddress("108 West 5th St, Tipton, IA", "<strong>Val's Day Spa Gifts & More</strong><br>108 West 5th St, Tipton, IA<br>");
 
 
         geocodeAddress("794 48th Ave, Amana, IA", "<strong>Warped & Woven Mill Mercantile</strong><br>794 48th Ave, Amana, IA<br>");
