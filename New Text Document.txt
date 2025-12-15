@@ -58,6 +58,9 @@
         geocodeAddress("8706 Countryside Plaza, Omaha, NE", "<strong>Sage Grove Designs</strong><br>8706 Countryside Plaza, Omaha, NE<br>");
 
 
+        geocodeAddress("605 Second St, Webster City, IA", "<strong>Rustic Daisy</strong><br>605 Second St, Webster City, IA<br>");
+
+
         geocodeAddress("201 S 13th St, Nebraska City, NE", "<strong>Sass & Frass</strong><br>201 S 13th St, Nebraska City, NE<br>");
 
 
@@ -79,7 +82,7 @@
         geocodeAddress("2301 Ingersoll Ave, Suite 200, Des Moines, IA", "<strong>True Roots Chiropractic</strong><br>2301 Ingersoll Ave, Suite 200, Des Moines, IA<br>");
 
 
-        geocodeAddress("401 W 9th St, Tipton, IA", "<strong>Val's Day Spa</strong><br>401 W 9th St, Tipton, IA<br>");
+        geocodeAddress("108 West 5th St, Tipton, IA", "<strong>Val's Day Spa</strong><br>108 West 5th St, Tipton, IA<br>");
 
 
         geocodeAddress("794 48th Ave, Amana, IA", "<strong>Warped & Woven Mill Mercantile</strong><br>794 48th Ave, Amana, IA<br>");
